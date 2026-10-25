@@ -322,9 +322,9 @@ const CU29_IMG='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCA
     $('giftImg').src = GIFT_BY_DATE[key] || DEFAULT_GIFT;
     openGift(`${_now.getMonth()+1}월 ${c.dataset.day}일 득템!`,'나의 득템 선물'); });
 
-  function openGift(cap,title){ $('giftCaption').textContent=cap||'';
+  function openGift(cap,title){ $('giftCaption').textContent=cap||''; $('giftCaption').style.display=cap?'':'none';
     $('giftModal').querySelector('.modal-title').textContent=title||'🎉 오늘의 선물'; $('giftModal').classList.add('show'); }
-  $('giftBtn').onclick=()=>{ $('giftImg').src=DEFAULT_GIFT; openGift('약속한 시간에 학습을 마치면 응시일 +2 영업일에 이 선물을 카톡으로 보내드려요!','오늘의 선물'); };
+  $('giftBtn').onclick=()=>{ $('giftImg').src=DEFAULT_GIFT; openGift('','오늘의 선물'); };
   $('giftClose').onclick=()=>$('giftModal').classList.remove('show');
   $('day2Close').onclick=()=>$('day2Modal').classList.remove('show');
   $('day2Modal').addEventListener('click',e=>{ if(e.target===$('day2Modal')) $('day2Modal').classList.remove('show'); });
